@@ -33,7 +33,8 @@ RUN sed -i "s/example\.com/${SSODOMAIN}/g" /etc/lemonldap-ng/* /var/lib/lemonlda
 RUN ln -s /etc/nginx/sites-available/handler-nginx.conf /etc/nginx/sites-enabled/ &&\
     ln -s /etc/nginx/sites-available/manager-nginx.conf /etc/nginx/sites-enabled/ &&\
     ln -s /etc/nginx/sites-available/portal-nginx.conf /etc/nginx/sites-enabled/ &&\
-    ln -s /etc/nginx/sites-available/test-nginx.conf /etc/nginx/sites-enabled/
+    ln -s /etc/nginx/sites-available/test-nginx.conf /etc/nginx/sites-enabled/ &&\
+    ln -s /etc/nginx/sites-available/openpaas.conf /etc/nginx/sites-enabled/
 
 # Remove cached configuration
 RUN rm -rf /tmp/lemonldap-ng-config
