@@ -40,22 +40,3 @@ Admin account:
 - Password: secret
 
 Note that admin account should not modify.
-
-## Configuration
-Note: This configuration already configured for hostname: http://op.example.com
-
-### Add virtual host for ESN server name
-Go to http://manager.example.com and click `Virtual Hosts` item in sidebar.
-
-Add virtual host by click `Add virtualhost` button and fill virtual host name which you use for `ESN_SERVER_NAME`.
-
-Click `Save` button.
-
-### Open access permisson for new virtualhost.
-After successfully to add virtual host, click at new virtual host item in sidebar.
-
-Go to `Access rule` page and you will see `Access rule` form.
-
-At `Default rule` line, change value of `Rules` to `accept`.
-
-You can add more rule by scroll down and read document for this part.

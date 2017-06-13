@@ -6,5 +6,6 @@ echo "127.0.0.1 reload.example.com" >> /etc/hosts
 # Configure nginx for OpenPaaS
 sed -i 's,\(http://\(.*\)\),'"http://$ESN_HOST:$ESN_PORT;"',g' /etc/nginx/sites-available/openpaas.conf
 sed -i 's,\(server_name \(.*\)\),'"server_name $ESN_SERVER_NAME;"',g' /etc/nginx/sites-available/openpaas.conf
+sed -i 's,op.example.com,'"$ESN_SERVER_NAME"',g' /var/lib/lemonldap-ng/conf/lmConf-1.js
 
 /usr/bin/supervisord
