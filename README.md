@@ -33,7 +33,16 @@ For example:
 sudo echo "127.0.0.1 auth.example.com manager.example.com openpaas.example.com" >> /etc/hosts
 ```
 
+## Authentication, users and password databases
+For test, Users table is stored at [fixture.csv](./fixture.csv) file and you can modify them.
+Admin account:
+- Username: admin
+- Password: secret
+
+Note that admin account should not modify.
+
 ## Configuration
+Note: This configuration already configured for hostname: http://op.example.com
 
 ### Add virtual host for ESN server name
 Go to http://manager.example.com and click `Virtual Hosts` item in sidebar.

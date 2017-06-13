@@ -21,10 +21,11 @@ RUN wget -O - http://lemonldap-ng.org/_media/rpm-gpg-key-ow2 | apt-key add -
 COPY lemonldap-ng.list /etc/apt/sources.list.d/
 
 # Install LemonLDAP::NG packages
-RUN apt-get -y update && apt-get -y install nginx supervisor lemonldap-ng lemonldap-ng-fastcgi-server
+RUN apt-get -y update && apt-get -y install nginx supervisor lemonldap-ng lemonldap-ng-fastcgi-server libdbd-csv-perl
 
 # Configure nginx for OpenPaaS
 COPY openpaas.conf /etc/nginx/sites-available/
+COPY ./lmConf-1.js /var/lib/lemonldap-ng/conf/
 
 # Change SSO Domain
 RUN sed -i "s/example\.com/${SSODOMAIN}/g" /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-1.js /var/lib/lemonldap-ng/test/index.pl
@@ -35,6 +36,9 @@ RUN ln -s /etc/nginx/sites-available/handler-nginx.conf /etc/nginx/sites-enabled
     ln -s /etc/nginx/sites-available/portal-nginx.conf /etc/nginx/sites-enabled/ &&\
     ln -s /etc/nginx/sites-available/test-nginx.conf /etc/nginx/sites-enabled/ &&\
     ln -s /etc/nginx/sites-available/openpaas.conf /etc/nginx/sites-enabled/
+
+# Copy fixture data
+COPY ./fixture.csv /usr/share/lemonldap-ng/portal
 
 # Remove cached configuration
 RUN rm -rf /tmp/lemonldap-ng-config

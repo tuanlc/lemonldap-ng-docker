@@ -1,0 +1,5 @@
+firstname,lastname,password,email,phone,job,company
+Admin,Admin,secret,admin
+Sang,NGO DOAN,secret,sang@example.com,097213345,Developer,Linagora
+Tuan,LE CONG,secret,tuan@example.com,098564342,Developer,Linagora
+Dung,PHAM TRUNG,secret,dung@example.com,098768435,Developer,Linagora
